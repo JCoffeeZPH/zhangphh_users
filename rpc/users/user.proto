@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package user;
+option go_package="./user";
+
+message GetUserRequest {
+  int64 user_id = 1;
+}
+
+message GetUserResponse {
+  User user_info = 1;
+}
+
+message User{
+  int64 user_id = 1;
+  string username = 2;
+  // todo add other fields
+}
+
+message GetUserByTokenRequest{
+  string token = 1;
+}
+
+service UserRPCService {
+  rpc GetUserInfo(GetUserRequest) returns(GetUserResponse);
+  rpc GetUserInfoByToken(GetUserByTokenRequest) returns(GetUserResponse);
+}

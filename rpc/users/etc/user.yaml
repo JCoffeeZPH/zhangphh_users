@@ -1,0 +1,14 @@
+Name: user-service.rpc
+ListenOn: 0.0.0.0:8081
+Etcd:
+  Hosts:
+    - 127.0.0.1:2379
+  Key: user-service.rpc
+Timeout: 5000
+
+DataSource: root:zhangphh=520@tcp(localhost:3306)/zhangphh
+Table: user_tab
+Cache:
+  - Host: localhost:6379
+AccessSecret: "abcdefhijklmn"
+AccessExpireTime: 300
